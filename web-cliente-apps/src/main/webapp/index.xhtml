@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Bienvenido</title>
+</h:head>
+<h:body>
+	<h2 align="center">GESTION DE USUARIOS</h2>
+	LISTADO DE TODOS LOS USUARIOS EXISTENTES
+	<h:form>
+		<h:dataTable value="#{controladorUsuario.lista}" var="usuario" cellspacing="0"
+			cellpadding="1" border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{usuario.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{usuario.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">User Name</f:facet>
+				<h:outputText value="#{usuario.userName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+				<h:outputText value="#{usuario.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Street</f:facet>
+				<h:outputText value="#{usuario.idDireccion.street}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Suite</f:facet>
+				<h:outputText value="#{usuario.idDireccion.suite}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">City</f:facet>
+				<h:outputText value="#{usuario.idDireccion.city}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Zipcode</f:facet>
+				<h:outputText value="#{usuario.idDireccion.zipcode}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Lat</f:facet>
+				<h:outputText value="#{usuario.idDireccion.idGeo.lat}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Long</f:facet>
+				<h:outputText value="#{usuario.idDireccion.idGeo.lng}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Phone</f:facet>
+				<h:outputText value="#{usuario.phone}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Website</f:facet>
+				<h:outputText value="#{usuario.website}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre Compañia</f:facet>
+				<h:outputText value="#{usuario.idCompany.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Frase Compañia</f:facet>
+				<h:outputText value="#{usuario.idCompany.catchPhrase}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Bs Compañia</f:facet>
+				<h:outputText value="#{usuario.idCompany.bs}" />
+			</h:column>
+
+		</h:dataTable>
+		<br />
+		<h:commandButton value="ACTUALIZAR TABLA USUARIOS"
+			action="#{controladorUsuario.actualizar}" />
+	</h:form>
+	<br/>
+	<h2 align="center">GESTION DE TODOS</h2>
+	LISTADO DE TODOS
+	<h:form>
+		<h:dataTable value="#{controladorTodos.lista}" var="todos" cellspacing="1"
+			cellpadding="1" border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{todos.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Id Usuario</f:facet>
+				<h:outputText value="#{todos.userId}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Titulo</f:facet>
+				<h:outputText value="#{todos.title}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Completado?</f:facet>
+				<h:outputText value="#{todos.completed}" />
+			</h:column>
+		</h:dataTable>
+		<br />
+		<h:commandButton value="ACTUALIZAR TABLA TODOS"
+			action="#{controladorTodos.actualizar}" />
+	</h:form>
+
+</h:body>
+</html>
